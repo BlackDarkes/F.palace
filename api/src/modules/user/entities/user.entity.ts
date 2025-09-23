@@ -1,6 +1,6 @@
-import { CartEntity } from "src/modules/cart/entities/cart.entity";
-import { FeedbackEntity } from "src/modules/feedback/entities/feedback.entity";
-import { OrdersEntity } from "src/modules/order/entities/orders.entity";
+import { CartEntity } from "../../cart/entities/cart.entity";
+import { FeedbackEntity } from "../../feedback/entities/feedback.entity";
+import { OrdersEntity } from "../../order/entities/orders.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("users") 

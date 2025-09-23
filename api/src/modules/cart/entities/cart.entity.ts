@@ -1,5 +1,5 @@
-import { ProductsEntity } from "src/modules/product/entities/product.entity";
-import { UsersEntity } from "src/modules/user/entities/user.entity";
+import { ProductsEntity } from "../../product/entities/product.entity";
+import { UsersEntity } from "../../user/entities/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("cart")
