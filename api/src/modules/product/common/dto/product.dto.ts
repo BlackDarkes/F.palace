@@ -1,17 +1,29 @@
-import { IsDecimal, IsNumber, IsString, MinLength } from "class-validator";
+import {
+	IsDecimal,
+	IsNotEmpty,
+	IsNumber,
+	IsString,
+	MaxLength,
+	MinLength,
+} from "class-validator";
 
 export class ProductDto {
-  @IsString()
-  @MinLength(6)
-  name: string;
+	@IsString()
+	@IsNotEmpty()
+	@MinLength(6)
+  @MaxLength(20)
+	name: string;
 
-  @IsString()
-  @MinLength(20)
-  image: string;
+	@IsString()
+  @IsNotEmpty()
+	@MinLength(20)
+	image: string;
 
-  @IsNumber()
-  price: number;
+	@IsNumber()
+  @IsNotEmpty()
+	price: number;
 
-  @IsDecimal()
-  stars: number;
+	@IsDecimal()
+  @IsNotEmpty()
+	stars: number;
 }
