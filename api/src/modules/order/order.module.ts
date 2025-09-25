@@ -12,5 +12,6 @@ import { OrdersEntity } from './entities/orders.entity';
   ],
   controllers: [OrderController],
   providers: [OrderService],
+  exports: [OrderService]
 })
 export class OrderModule {}

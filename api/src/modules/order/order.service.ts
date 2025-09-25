@@ -16,7 +16,19 @@ export class OrderService {
   }
 
   async getAllById(id: string): Promise<OrdersEntity[] | null> {
-    return this.orderRepository.find({ where: { userId: id } });
+    return this.orderRepository
+      .createQueryBuilder("order")
+      .leftJoin("order.user", "user")
+      .select([
+        "order.id as id",
+        "user.name as name",
+        "order.order_date as order_date",
+        "order.status as status",
+        "order.address as address",
+        "order.total_amount as total_amount"
+      ])
+      .where("user.id = :userId", { userId: id })
+      .getRawMany();
   }
 
   async getById(id: string): Promise<OrdersEntity | null> {
