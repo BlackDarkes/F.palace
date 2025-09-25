@@ -1,7 +1,8 @@
-import { Controller, Get, HttpCode, Param } from "@nestjs/common";
+import { Controller, Get, HttpCode, NotFoundException, Param } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { OrderService } from "../order/order.service";
 import { CartService } from "../cart/cart.service";
+import { FeedbackService } from "../feedback/feedback.service";
 
 @Controller("user")
 export class UserController {
@@ -9,6 +10,7 @@ export class UserController {
 		private readonly userService: UserService,
 		private readonly orderService: OrderService,
 		private readonly cartService: CartService,
+    private readonly feedbackService: FeedbackService,
 	) {}
 
 	@Get(":id")
@@ -23,9 +25,7 @@ export class UserController {
 		const orders = await this.orderService.getAllById(id);
 
 		if (!orders || orders.length === 0) {
-			return {
-				message: "Заказов пока что нет!",
-			};
+      throw new NotFoundException("Заказов пока что нет!");
 		}
 
 		return orders;
@@ -37,11 +37,19 @@ export class UserController {
 		const carts = await this.cartService.getAllById(id);
 
 		if (!carts || carts.length === 0) {
-			return {
-				message: "Корзина пуста!",
-			};
+      throw new NotFoundException("Корзина пуста!");
 		}
 
 		return carts;
 	}
+
+  @Get(":id/feedbacks")
+  @HttpCode(200)
+  async getFeedbackById(@Param("id") id: string) {
+    const feedbacks = await this.feedbackService.getByIdAll(id);
+
+    if (!feedbacks || feedbacks.length === 0) {
+      throw new NotFoundException("Комментариев не найдено!");
+    }
+  }
 }

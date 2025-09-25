@@ -12,5 +12,6 @@ import { FeedbackEntity } from './entities/feedback.entity';
   ],
   controllers: [FeedbackController],
   providers: [FeedbackService],
+  exports: [FeedbackService]
 })
 export class FeedbackModule {}
