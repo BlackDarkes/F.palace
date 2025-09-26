@@ -12,7 +12,17 @@ export class CartService {
 	) {}
 
 	async getAll(): Promise<CartEntity[] | null> {
-		return this.cartRepository.find();
+		return this.cartRepository
+			.createQueryBuilder("cart")
+			.leftJoin("cart.user", "user")
+			.leftJoin("cart.product", "product")
+			.select([
+				"cart.id as id",
+				"user.name as name",
+				"product.name as product",
+				"cart.quantity as quantity",
+			])
+			.getRawMany();
 	}
 
 	async getAllById(id: string): Promise<CartEntity[] | null> {

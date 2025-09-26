@@ -12,7 +12,18 @@ export class OrderService {
   ) {}
 
   async getAll(): Promise<OrdersEntity[] | null> {
-    return this.orderRepository.find();
+    return this.orderRepository
+      .createQueryBuilder("order")
+      .leftJoin("order.user", "user")
+      .select([
+        "order.id as id",
+        "user.name as name",
+        "order.order_date as order_date",
+        "order.status as status",
+        "order.address as address",
+        "order.total_amount as total_amount"
+      ])
+      .getRawMany();
   }
 
   async getAllById(id: string): Promise<OrdersEntity[] | null> {
