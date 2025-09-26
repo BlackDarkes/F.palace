@@ -11,6 +11,7 @@ import {
 } from "@nestjs/common";
 import { FeedbackService } from "./feedback.service";
 import { FeedbackDto } from "./common/dto/feedback.dto";
+import { Auth } from "../auth/common/decorators/auth.decorator";
 
 @Controller("feedback")
 export class FeedbackController {
@@ -40,6 +41,7 @@ export class FeedbackController {
 		return feedback;
 	}
 
+	@Auth()
 	@Post("")
 	@HttpCode(201)
 	async create(@Body() dto: FeedbackDto) {

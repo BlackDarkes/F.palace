@@ -51,5 +51,7 @@ export class UserController {
     if (!feedbacks || feedbacks.length === 0) {
       throw new NotFoundException("Комментариев не найдено!");
     }
+
+		return feedbacks;
   }
 }
