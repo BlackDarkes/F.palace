@@ -1,0 +1,5 @@
+@use "./function.scss" as *;
+
+@mixin fluid-text($max, $min) {
+  font-size: fluid($max, $min);
+}
