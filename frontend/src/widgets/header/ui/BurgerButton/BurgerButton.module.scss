@@ -1,0 +1,33 @@
+.burger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: rem(20);
+  height: rem(17);
+
+  &Line {
+    width: 70%;
+    height: rem(3);
+    border-radius: rem(3);
+    background-color: $mainBlack;
+  }
+
+  &::before, &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    height: rem(3);
+    width: 100%;
+    border-radius: rem(3);
+    background-color: $mainBlack;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+}
