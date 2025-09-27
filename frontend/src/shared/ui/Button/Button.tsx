@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styles from './Button.module.scss'
 
 interface IButtonProps {
-  children: ReactNode;
+  children: ReactNode; 
 }
   
 export const Button = ({ children }: IButtonProps) => {

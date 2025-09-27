@@ -25,6 +25,7 @@
     "eslint-config-next": "15.5.3",
     "framer-motion": "^12.23.18",
     "react-hook-form": "^7.63.0",
+    "sass": "^1.93.2",
     "typescript": "^5",
     "zod": "^4.1.11"
   }

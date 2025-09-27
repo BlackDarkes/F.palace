@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito, Montserrat } from "next/font/google";
 import "@/shared/styles/base/normalize.scss";
 import "@/shared/styles/base/globals.scss";
+import { QueryRouter } from "./routers/QueryRouter";
 
 const NunitoSans = Nunito({
   variable: "--font-nunito",
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${NunitoSans.variable} ${MontserratSans.variable}`}>
-        {children}
+        <QueryRouter>
+          { children }
+        </QueryRouter>
       </body>
     </html>
   );
