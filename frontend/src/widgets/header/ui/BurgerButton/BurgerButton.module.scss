@@ -11,6 +11,11 @@
     height: rem(3);
     border-radius: rem(3);
     background-color: $mainBlack;
+    transition: $smallTransition;
+
+    &Active {
+      scale: 0;
+    }
   }
 
   &::before, &::after {
@@ -21,6 +26,7 @@
     width: 100%;
     border-radius: rem(3);
     background-color: $mainBlack;
+    transition: $smallTransition;
   }
 
   &::before {
@@ -29,5 +35,21 @@
 
   &::after {
     bottom: 0;
+  }
+
+  &Active {
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+      top: 50%;
+      left: 50%;
+      transition: $smallTransition;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+      top: 50%;
+      left: 50%;
+      transition: $smallTransition;
+    }
   }
 }
