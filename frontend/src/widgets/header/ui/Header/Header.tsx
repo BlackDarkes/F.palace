@@ -1,8 +1,8 @@
 import { Container } from "@/shared/ui";
 import { NavList } from "../NavList/NavList";
 import Image from "next/image";
-import { BurgerButton } from "../BurgerButton/BurgerButton";
 import styles from './Header.module.scss'
+import { Burger } from "../Burger/Burger";
 
 export const Header = () => {
   return (
@@ -13,7 +13,7 @@ export const Header = () => {
         <div className={styles.headerList}>
           <NavList />
 
-          <BurgerButton />
+          <Burger />
         </div>
       </Container>
     </header>

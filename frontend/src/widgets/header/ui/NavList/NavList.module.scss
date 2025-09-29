@@ -1,9 +1,13 @@
 .navList {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   column-gap: clamp(rem(20),7vw,rem(60));
 
   &Li {
     height: rem(24);
+
+    &Cart {
+      height: rem(20);
+    }
   }
 }

@@ -1,0 +1,36 @@
+.burger {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffffcc;
+  translate: -100% 0;
+  transition: $middleTransition;
+  opacity: 0;
+  cursor: pointer;
+
+  &List {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(40);
+    align-items: flex-start;
+    padding: rem(25);
+    height: 100dvh;
+    width: min(100%, rem(400));
+    background-color: #FFEDD3;
+    cursor: default;
+  }
+
+  &Button {
+    padding: rem(10) rem(18);
+    background-color: $accentOrange;
+    color: $mainWhite;
+    border-radius: rem(10);
+  }
+
+  &Active {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
