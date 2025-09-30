@@ -1,13 +1,17 @@
+@use "../helpers//function" as *;
+
 /* Colors */
 
 $mainBlack: #2E2E2E;
 $mainWhite: #FFFFFF;
-$mainBackground: #FFFEFC;
+$mainBackground: #f8f8f8;
 $mainBrown: #3F3232;
 $mainGray: #C4C4C442;
 
 $accentOrange: #FF9401;
 $accentGray: #C4C4C4;
+
+$opacityOrange: #FF940133;
 
 /* Font */
 
@@ -20,6 +24,11 @@ $fontNunito: var(--font-nunito); // Circular Std
 $smallTransition: 0.4s;
 $middleTransition: 0.6s;
 $bigTransition: 0.8s;
+
+
+/* Box shadow */
+
+$boxShadow: rem(0) rem(10) rem(20) $opacityOrange;
 
 
 /* Z-index */

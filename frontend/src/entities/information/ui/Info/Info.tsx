@@ -1,5 +1,5 @@
 import { Button } from "@/shared/ui";
-import type { IInfo } from "../models/info.interface";
+import type { IInfo } from "../../models/info.interface";
 
 interface IInfoProps {
   info: IInfo;

@@ -1,4 +1,5 @@
 import { ISocial } from "../../model/types/social.interface";
+import styles from './HeroSocial.module.scss'
 
 interface IHeroSocialProps {
   social: ISocial[];
@@ -6,10 +7,10 @@ interface IHeroSocialProps {
 
 export const HeroSocial = ({ social }: IHeroSocialProps) => {
   return (
-    <ul>
+    <ul className={styles.social}>
       {social.map(({ id, icon: Icon }) => (
         <li key={id}>
-          <a href="./">
+          <a href="./" className={styles.socialItem}>
             <Icon />
           </a>
         </li>

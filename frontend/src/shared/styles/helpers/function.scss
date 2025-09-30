@@ -9,20 +9,20 @@
 }
 
 @function fluid($max, $min) {
-  $minViewportWidth: 1600;
-  $maxViewportWIdth: 480;
+  $maxViewportWidth: 1600;
+  $minViewportWidth: 480;
 
-  $minSize: math.div($min, 16);
   $maxSize: math.div($max, 16);
-  $minWidth: math.div($minViewportWidth, 16);
-  $maxWidth: math.div($maxViewportWIdth, 16);
+  $minSize: math.div($min, 16);
+  $maxViewport: math.div($maxViewportWidth, 16);
+  $minViewport: math.div($minViewportWidth, 16);
 
-  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minSize));
-  $yAxisIntersection: -$minWidth * $slope + $minSize;
+  $slope: math.div(($maxSize - $minSize), ($maxViewport - $minViewport));
+  $yAxisIntersection: -$minViewport * $slope + $minSize;
 
   @return clamp(
-    #{$minSize},
+    #{$minSize * 1rem},
     #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-    #{$maxSize}
+    #{$maxSize * 1rem}
   );
 }

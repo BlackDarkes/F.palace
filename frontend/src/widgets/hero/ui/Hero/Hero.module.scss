@@ -1,0 +1,18 @@
+.hero {
+  margin-top: clamp(rem(80),4vw,rem(95));
+  padding-top: clamp(rem(20),4vw,rem(40));
+
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mobile() {
+      flex-direction: column;
+    }
+  }
+
+  &Info {
+    width: min(100%, rem(532));
+  }
+}

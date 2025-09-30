@@ -1,0 +1,15 @@
+.social {
+  display: flex;
+  column-gap: rem(30);
+
+  &Item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(35);
+    aspect-ratio: 1;
+    background-color: $mainWhite;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+  }
+}

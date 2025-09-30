@@ -5,7 +5,7 @@ export const HeroImage = () => {
   return (
     <div>
       <div>
-        <Image src={ImageMain} alt="image main" width={486} height={479} />
+        <Image src={ImageMain} alt="image main" width={547} height={535} />
       </div>
     </div>
   );

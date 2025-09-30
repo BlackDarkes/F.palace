@@ -20,6 +20,10 @@
     width: min(100%, rem(400));
     background-color: $accentOrange;
     cursor: default;
+
+    @include mobile-s() {
+      width: 100%;
+    }
   }
 
   &Button {
