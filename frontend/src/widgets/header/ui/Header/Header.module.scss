@@ -11,6 +11,15 @@
     column-gap: rem(40);
   }
 
+  &Logo {
+    display: flex;
+    align-items: center;
+    column-gap: rem(6);
+    font-size: rem(22);
+    font-weight: 700;
+    user-select: none;
+  }
+
   &List {
     position: relative;
     display: flex;
