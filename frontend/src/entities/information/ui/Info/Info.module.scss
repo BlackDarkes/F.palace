@@ -1,0 +1,25 @@
+.info {
+  width: miN(100%, rem(444));
+
+  &Category {
+    font-weight: 600;
+    color: $accentOrange;
+    @include fluid-text(24, 20)
+  }
+
+  &Block {
+    margin-block: clamp(rem(15),7vw,rem(24)) clamp(rem(28),7vw,rem(48));
+  }
+
+  &Title {
+    margin-bottom: rem(20);
+    line-height: rem(60);
+    @include fluid-text(52, 38)
+  }
+
+  &Body {
+    font-weight: 450;
+    line-height: 160%;
+    @include fluid-text(20, 16)
+  }
+}

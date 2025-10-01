@@ -1,5 +1,5 @@
-import { Button } from "@/shared/ui";
 import type { IInfo } from "../../models/info.interface";
+import styles from './Info.module.scss'
 
 interface IInfoProps {
   info: IInfo;
@@ -7,15 +7,13 @@ interface IInfoProps {
   
 export const Info = ({ info }: IInfoProps) => {
   return (
-    <div>
-      <span>{info.category}</span>
+    <div className={styles.info}>
+      <span className={styles.infoCategory}>{info.category}</span>
 
-      <div>
-        <h2>{info.title}</h2>
-        <p>{info.body}</p>
+      <div className={styles.infoBlock}>
+        <h2 className={styles.infoTitle}>{info.title}</h2>
+        <p className={styles.infoBody}>{info.body}</p>
       </div>
-
-      <Button>{info.button}</Button>
     </div>
   );
 }
