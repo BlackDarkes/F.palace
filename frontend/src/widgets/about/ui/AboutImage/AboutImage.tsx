@@ -1,13 +1,14 @@
 import Image from "next/image";
 import MainImage from "../../assets/images/Image.png";
 import IconPlay from "../../assets/icons/playButton.svg";
+import styles from './AboutImage.module.scss'
 
 export const AboutImage = () => {
   return (
-    <div>
-      <Image src={MainImage} alt="dish" width={758} loading="lazy" />
+    <div className={styles.image}>
+      <Image src={MainImage} alt="dish" width={633} loading="lazy" />
 
-      <div>
+      <div className={styles.imageIcon}>
         <IconPlay />
       </div>
     </div>

@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
 
-    @include fluid-text(57, 36)
+    @include fluid-text(52, 36)
   }
 
   &Text {
@@ -19,23 +19,6 @@
   }
 
   &Button {
-    padding: rem(16) rem(32);
     margin-block: rem(45) rem(60);
-    background-color: $accentOrange;
-    color: $mainWhite;
-    font-weight: 500;
-    border: 1px solid transparent;
-    border-radius: rem(31);
-    outline: 1px solid transparent;
-    outline-offset: rem(5);
-    box-shadow: $boxShadow;
-
-    @include active();
-    @include focus();
-    @include hover() {
-      background-color: transparent;
-      color: $accentOrange;
-      border-color: $accentOrange;
-    }
   }
 }

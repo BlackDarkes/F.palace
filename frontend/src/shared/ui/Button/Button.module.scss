@@ -1,3 +1,20 @@
 .button {
-  background-color: transparent;
+  padding: rem(16) rem(32);
+
+  background-color: $accentOrange;
+  color: $mainWhite;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: rem(31);
+  outline: 1px solid transparent;
+  outline-offset: rem(5);
+  box-shadow: $boxShadow;
+
+  @include active();
+  @include focus();
+  @include hover() {
+    background-color: transparent;
+    color: $accentOrange;
+    border-color: $accentOrange;
+  }
 }

@@ -1,0 +1,13 @@
+.image {
+  position: relative;
+
+  &Icon {
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+
+    @include mobile-s() {
+      bottom: 0;
+    }
+  }
+}

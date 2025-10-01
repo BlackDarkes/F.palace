@@ -13,6 +13,12 @@ $accentGray: #C4C4C4;
 
 $opacityOrange: #FF940133;
 
+
+/* Gradient */
+
+$backgroundGradient: linear-gradient(180deg, rgba(255, 148, 1, 0.05) 0%, rgba(255, 237, 211, 0) 100%);
+
+
 /* Font */
 
 $fontMontserrat: var(--font-montserrat); // Gilroy

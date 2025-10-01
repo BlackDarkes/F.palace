@@ -1,5 +1,6 @@
 import { IInfo, Info } from "@/entities/information";
 import { Button } from "@/shared/ui";
+import styles from './AboutInfo.module.scss'
 
 interface IAboutInfoProps {
   info: IInfo;
@@ -7,9 +8,9 @@ interface IAboutInfoProps {
 
 export const AboutInfo = ({ info }: IAboutInfoProps) => {
   return (
-    <div>
+    <div className={styles.info}>
       <Info info={info} />
-      
+
       <Button>Explore our story</Button>
     </div>
   );
