@@ -1,0 +1,16 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &Category {
+    font-weight: 600;
+    color: $accentOrange;
+
+    @include fluid-text(24, 20)
+  }
+
+  &Title {
+    @include fluid-text(48, 32)
+  }
+}

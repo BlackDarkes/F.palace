@@ -1,7 +1,7 @@
 import { IFeature } from "@/entities/feature";
-import IconFood from "../assets/food.svg";
-import IconMouth from "../assets/mouth.svg";
-import IconTruck from "../assets/truck.svg";
+import IconFood from "../assets/icons/food.svg";
+import IconMouth from "../assets/icons/mouth.svg";
+import IconTruck from "../assets/icons/truck.svg";
 
 export const FEATURE_ITEMS: IFeature[] = [
   {
