@@ -6,6 +6,7 @@
   transition: $middleTransition;
   opacity: 0;
   cursor: pointer;
+  z-index: $z-300;
 
   &List {
     position: absolute;
@@ -20,6 +21,7 @@
     width: min(100%, rem(400));
     background-color: $accentOrange;
     cursor: default;
+    z-index: $z-300;
 
     @include mobile-s() {
       width: 100%;
