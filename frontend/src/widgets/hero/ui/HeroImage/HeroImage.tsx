@@ -5,7 +5,7 @@ import styles from './HeroImage.module.scss'
 export const HeroImage = () => {
   return (
     <div className={styles.container}>
-      <Image src={ImageMain} alt="image main" width={547} height={535} />
+      <Image src={ImageMain} alt="image main" width={547} priority />
     </div>
   );
 }

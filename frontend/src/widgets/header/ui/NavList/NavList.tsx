@@ -3,13 +3,9 @@ import CartIcon from "../../assets/cart.svg";
 import styles from './NavList.module.scss'
 import { BurgerButton } from "../BurgerButton/BurgerButton";
 
-interface INavListProps {
-  className?: string;
-}
-  
-export const NavList = ({ className }: INavListProps) => {
+export const NavList = () => {
   return (
-    <ul className={`${className ? className : ""} ${styles.navList}`}>
+    <ul className={styles.navList}>
       <li className={styles.navListLi}>
         <button className={styles.navListButton}><SearchIcon /></button>
       </li>

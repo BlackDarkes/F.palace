@@ -1,7 +1,7 @@
 .navList {
   display: flex;
   align-items: center;
-  column-gap: clamp(rem(20),7vw,rem(60));
+  column-gap: clamp(rem(20), 7vw, rem(60));
 
   &Li {
     height: rem(24);
@@ -9,5 +9,13 @@
     &Cart {
       height: rem(20);
     }
+  }
+
+  &Button {
+    @include active();
+    @include focus();
+    @include svg-hover($smallTransition, $accentOrange);
+
+    display: flex;
   }
 }

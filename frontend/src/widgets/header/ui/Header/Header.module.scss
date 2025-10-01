@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  padding-block: clamp(rem(30),3vw,rem(45)) rem(20);
+  padding-block: clamp(rem(30), 3vw, rem(45)) rem(20);
 
   &Container {
     display: flex;
@@ -23,6 +23,6 @@
   &List {
     position: relative;
     display: flex;
-    column-gap: clamp(rem(20),7vw,rem(60));
+    column-gap: clamp(rem(20), 7vw, rem(60));
   }
 }

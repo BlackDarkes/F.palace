@@ -11,5 +11,9 @@
     background-color: $mainWhite;
     border-radius: 50%;
     box-shadow: $boxShadow;
+
+    @include active();
+    @include focus();
+    @include svg-hover($smallTransition, $accentOrange)
   }
 }

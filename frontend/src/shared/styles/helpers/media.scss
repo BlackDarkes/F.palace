@@ -7,7 +7,9 @@ $mobile-s: 480.98;
 
 @mixin hover() {
   @media (hover: hover) {
-    @content;
+    &:hover {
+      @content;
+    }
   }
 }
 
