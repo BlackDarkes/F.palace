@@ -1,0 +1,13 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: clamp(rem(30),4vw,rem(54));
+
+  @include tablet() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mobile() {
+    grid-template-columns: 1fr;
+  }
+}

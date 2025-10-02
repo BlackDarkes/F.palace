@@ -1,0 +1,50 @@
+.item {
+  padding: rem(12);
+  background-color: $mainWhite;
+  border-radius: rem(8);
+
+  &Container {
+    margin-top: rem(20);
+  }
+
+  &TextContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: rem(15);
+  }
+
+  &Title {
+    font-weight: 500;
+
+    @include fluid-text(20, 18)
+  }
+
+  &Stars {
+    display: flex;
+    align-items: center;
+    column-gap: rem(4);
+    font-weight: 600;
+  }
+
+  &Button {
+    padding: rem(5) rem(14);
+    background-color: $mainGray;
+    font-size: rem(10);
+    border-radius: rem(15);
+    transition: $smallTransition;
+
+    @include active();
+    @include focus();
+    @include hover() {
+      background-color: $accentGray;
+    }
+  }
+
+  &Price {
+    color: $accentOrange;
+    font-weight: 700;
+
+    @include fluid-text(18, 16)
+  }
+}

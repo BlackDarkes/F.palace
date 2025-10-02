@@ -1,0 +1,11 @@
+.recipes {
+  padding-block: clamp(rem(40),5vw,rem(80));
+  background-image: $backgroundGradient;
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: clamp(rem(40),5vw,rem(71));
+  }
+}
