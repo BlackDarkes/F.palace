@@ -1,5 +1,6 @@
 import { IRecipe } from "@/features/recipe";
 import Image from "next/image";
+import IconStar from "../../assets/star.svg";
 
 interface IRecipeItemProps {
   recipe: IRecipe;
@@ -8,17 +9,17 @@ interface IRecipeItemProps {
 export const RecipeItem = ({ recipe }: IRecipeItemProps) => {
   return (
     <li>
-      <Image src={recipe.image} alt={`recipe ${recipe.name}`} width={400} loading="lazy" />
+      <Image src={`/api${recipe.image}`} alt={`recipe ${recipe.name}`} width={330} height={231} loading="lazy" />
 
       <div>
         <div>
           <h2>{recipe.name}</h2>
-          <p>{recipe.stars}</p>
+          <p><IconStar />{recipe.stars}</p>
         </div>
 
         <div>
-          <button></button>
-          <p>{recipe.price}</p>
+          <button>ADD TO CART</button>
+          <p>${recipe.price}</p>
         </div>
       </div>
     </li>
