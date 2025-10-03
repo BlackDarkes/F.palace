@@ -1,0 +1,1 @@
+export { TakeAway } from "./ui/TakeAway/TakeAway";
