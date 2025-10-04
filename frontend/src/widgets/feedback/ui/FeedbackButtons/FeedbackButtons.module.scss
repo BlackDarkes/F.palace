@@ -1,0 +1,41 @@
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &Name {
+    margin-bottom: rem(4);
+    color: $mainBlack;
+
+    @include fluid-text(24, 20)
+  }
+
+  &Tag {
+    color: $mainBrown;
+    font-size: rem(14);
+  }
+
+  &Arrows {
+    display: flex;
+    column-gap: rem(6);
+  }
+
+  &Arrow {
+    display: flex;
+
+    &First {
+      rotate: 180deg;
+    }
+
+    &Disable {
+      cursor: default;
+
+      & svg,
+      & scg * {
+        scale: 0.6;
+      }
+
+      @include svg($mainBlack)
+    }
+  }
+}

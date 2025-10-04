@@ -1,0 +1,17 @@
+.feedback {
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: clamp(rem(40),5vw,rem(80));
+
+    @include mobile() {
+      flex-direction: column;
+      row-gap: rem(40);
+    }
+  }
+
+  &Info {
+    width: min(100%, rem(444));
+  }
+}
