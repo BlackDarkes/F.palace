@@ -9,7 +9,7 @@ export const Title = ({ category, title }: ITitleProps) => {
   return (
     <div className={styles.title}>
       <span className={styles.titleCategory}>{ category }</span>
-      <h1 className={styles.titleTitle}>{ title }</h1>
+      <h2 className={styles.titleTitle}>{ title }</h2>
     </div>
   );
 }

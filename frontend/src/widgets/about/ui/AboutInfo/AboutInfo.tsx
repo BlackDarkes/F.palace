@@ -1,6 +1,6 @@
-import { IInfo, Info } from "@/entities/information";
-import { Button } from "@/shared/ui";
+import { Button, Info } from "@/shared/ui";
 import styles from './AboutInfo.module.scss'
+import { IInfo } from "@/shared/models/info.interface";
 
 interface IAboutInfoProps {
   info: IInfo;

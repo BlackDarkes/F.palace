@@ -14,7 +14,7 @@ export const RecipeItem = ({ recipe }: IRecipeItemProps) => {
 
       <div className={styles.itemContainer}>
         <div className={styles.itemTextContainer}>
-          <h2 className={styles.itemTitle}>{recipe.name}</h2>
+          <h3 className={styles.itemTitle}>{recipe.name}</h3>
           <p className={styles.itemStars}><IconStar />{recipe.stars}</p>
         </div>
 

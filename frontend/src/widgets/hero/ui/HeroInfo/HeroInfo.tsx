@@ -13,18 +13,18 @@ export const HeroInfo = () => {
       </span>
 
       <div>
-        <h1 className={styles.infoSlogan}>
+        <h2 className={styles.infoSlogan}>
           Good f
           <IconMeatBall />
           <IconMeatBall />
           d
-        </h1>
-        <h1 className={styles.infoSlogan}>
+        </h2>
+        <h2 className={styles.infoSlogan}>
           Good m
           <IconSmile />
           <IconSmile />
            d
-        </h1>
+        </h2>
         <p className={styles.infoText}>
           The food palace is an neighborhood restaurent serving seasonal global
           cuisine driven by the faire.

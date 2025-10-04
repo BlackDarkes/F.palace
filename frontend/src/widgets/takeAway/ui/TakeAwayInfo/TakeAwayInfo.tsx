@@ -1,7 +1,8 @@
-import { IInfo, Info } from "@/entities/information";
 import ImageAppStore from "../../assets/appStore.png";
 import ImageGooglePlay from "../../assets/googlePlay.png";
 import Image from "next/image";
+import { IInfo } from "@/shared/models/info.interface";
+import { Info } from "@/shared/ui";
 import styles from './TakeAwayInfo.module.scss'
 
 interface ITakeAwayInfoProps {

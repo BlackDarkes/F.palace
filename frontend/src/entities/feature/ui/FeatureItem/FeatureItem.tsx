@@ -11,7 +11,7 @@ export const FeatureItem = ({ feature: { icon: Icon, title, body } }: IFeatureIt
       <Icon />
 
       <div>
-        <h2 className={styles.itemTitle}>{ title }</h2>
+        <h3 className={styles.itemTitle}>{ title }</h3>
         <p className={styles.itemBody}>{ body }</p>
       </div>
     </li>
