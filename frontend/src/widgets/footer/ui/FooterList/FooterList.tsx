@@ -18,8 +18,8 @@ export const FooterList = ({
         <h3 className={styles.listsTitle}>{title}</h3>
       </li>
       {points.map((point, index) => (
-        <li key={index} className={styles.listsItem}>
-          <Link href={"/"}>{point}</Link>
+        <li key={index}>
+          <Link href={"/"} className={`${styles.listsItem} ${isSocial ? styles.listsSocial : ""}`}>{point}</Link>
         </li>
       ))}
     </ul>

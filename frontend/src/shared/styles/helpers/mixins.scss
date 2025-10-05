@@ -45,3 +45,30 @@ $focusColor: $accentOrange !default;
     translate: 0 rem(1);
   }
 }
+
+@mixin underline($color) {
+  position: relative;
+  transition: $smallTransition;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: rem(-3);
+    left: 0;
+    width: 100%;
+    height: rem(2);
+    background-color: $color;
+    scale: 0;
+    transform-origin: left;
+    transition: $smallTransition;
+  }
+
+  @include hover() {
+    text-decoration: none;
+
+    &::before {
+      scale: 1;
+      transform-origin: left;
+    }
+  }
+}

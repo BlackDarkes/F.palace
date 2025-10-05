@@ -3,10 +3,11 @@ import { OUR_INFO } from "../../model/ourMenu";
 import { SOCIAL } from "../../model/social";
 import { USERFULL_LINKS } from "../../model/usefullinks";
 import { FooterList } from "../FooterList/FooterList";
+import styles from './FooterLists.module.scss'
 
 export const FooterLists = () => {
   return (
-    <div>
+    <div className={styles.lists}>
       <FooterList title="Our menu" points={OUR_INFO} />
       <FooterList title="Information" points={INFORMATION} />
       <FooterList title="Useful Links" points={USERFULL_LINKS} />

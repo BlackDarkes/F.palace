@@ -1,0 +1,14 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(23);
+  width: min(100%, rem(318));
+
+  &Link {
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+    color: $mainBrown;
+    font-weight: 450;
+  }
+}

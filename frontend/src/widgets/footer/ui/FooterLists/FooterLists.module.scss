@@ -1,0 +1,18 @@
+.lists {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(rem(20),5vw,rem(50));
+  padding-bottom: rem(25);
+
+  @include tablet() {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile-s() {
+    width: min(100%, rem(318));
+  }
+}
