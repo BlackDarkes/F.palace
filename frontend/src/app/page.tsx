@@ -1,6 +1,7 @@
 import { About } from "@/widgets/about";
 import { Features } from "@/widgets/features/ui/Features/Features";
 import { Feedback } from "@/widgets/feedback";
+import { Footer } from "@/widgets/footer/ui/Footer/Footer";
 import { Header } from "@/widgets/header";
 import { Hero } from "@/widgets/hero";
 import { Recipes } from "@/widgets/recipes/";
@@ -18,6 +19,7 @@ export default function Home() {
         <TakeAway />
         <Feedback />
       </main>
+      <Footer/>
     </>
   );
 }

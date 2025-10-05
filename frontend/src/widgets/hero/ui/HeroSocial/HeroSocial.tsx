@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ISocial } from "../../model/types/social.interface";
 import styles from './HeroSocial.module.scss'
 
@@ -10,9 +11,9 @@ export const HeroSocial = ({ social }: IHeroSocialProps) => {
     <ul className={styles.social}>
       {social.map(({ id, icon: Icon }) => (
         <li key={id}>
-          <a href="./" className={styles.socialItem}>
+          <Link href="./" className={styles.socialItem}>
             <Icon />
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

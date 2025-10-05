@@ -1,0 +1,16 @@
+.lists {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+
+  &Title {
+    @include fluid-text(20, 18)
+  }
+
+  &Item {
+    margin-bottom: rem(2);
+    color: $mainBrown;
+
+    @include fluid-text(18, 16)
+  }
+}

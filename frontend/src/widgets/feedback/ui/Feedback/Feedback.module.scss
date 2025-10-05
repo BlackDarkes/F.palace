@@ -1,4 +1,6 @@
 .feedback {
+  padding-block: clamp(rem(40),5vw,rem(80));
+
   &Container {
     display: flex;
     justify-content: space-between;
