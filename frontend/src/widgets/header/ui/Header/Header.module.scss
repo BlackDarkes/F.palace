@@ -4,6 +4,7 @@
   left: 0;
   width: 100vw;
   padding-block: clamp(rem(30), 3vw, rem(45)) rem(20);
+  transition: $smallTransition;
   z-index: $z-300;
 
   &Container {
