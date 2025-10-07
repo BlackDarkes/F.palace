@@ -3,8 +3,11 @@
 import { publicApi } from "@/libs/api/instance/apiInstance";
 import { useMutation } from "@tanstack/react-query";
 import { ILogin } from "../model/types/login.interface";
+import { useStore } from "@/app/store/store";
 
 export const useLogin = () => {
+  const { setUser } = useStore();
+
   return useMutation({
     mutationFn: async ({ email, password }: ILogin) => {
       const response = await publicApi.post(
@@ -18,8 +21,8 @@ export const useLogin = () => {
       );
       return response.data;
     },
-    onSuccess: () => {
-      
+    onSuccess: (data) => {
+      setUser(data?.user);
     }
   });
 };

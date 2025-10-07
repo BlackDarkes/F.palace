@@ -6,10 +6,14 @@ import { LoginDto } from "./common/dto/login.dto";
 import { Auth } from "./common/decorators/auth.decorator";
 import { Authorize } from "./common/decorators/authorize.decorator";
 import { UsersEntity } from "../user/entities/user.entity";
+import { UserService } from "../user/user.service";
 
 @Controller("auth")
 export class AuthController {
-	constructor(private readonly authService: AuthService) {}
+	constructor(
+    private readonly authService: AuthService,
+    private readonly userService: UserService,
+  ) {}
 
 	@Post("register")
 	@HttpCode(201)
@@ -25,10 +29,12 @@ export class AuthController {
 	@HttpCode(200)
 	async login(@Res({ passthrough: true }) res: Response, @Body() dto: LoginDto) {
 		const accessToken = await this.authService.login(res, dto);
+    const user = await this.userService.getByEmail(dto.email);
 
     return {
       message: "вы успешно вошли в аккаунт!",
       token: accessToken,
+      user,
     }
 	}
 
