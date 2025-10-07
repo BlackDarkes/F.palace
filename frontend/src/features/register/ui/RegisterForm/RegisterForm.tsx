@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,6 +7,7 @@ import z from "zod";
 import { useRegister } from "../../api/useRegister";
 import { useStore } from "@/app/store/store";
 import { IRegister } from "../../module/types/register.interface";
+import styles from "./RegisterForm.module.scss";
 
 const registerSchema = z.object({
   name: z.string().min(1, "Name не может быть пустым"),
@@ -35,28 +36,59 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <h2>Registration</h2>
+    <div className={styles.register}>
+      <h2 className={styles.registerTitle}>Registration</h2>
 
       <form method="post" onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className={styles.registerInputs}>
           <p>
-            <input type="text" { ...register("name") } />
-            {errors.name && <span>{errors.name?.message}</span>}
+            <input
+              type="text"
+              className={styles.registerInput}
+              {...register("name")}
+              placeholder="name..."
+            />
+            {errors.name && (
+              <span className={styles.registerError}>
+                {errors.name?.message}
+              </span>
+            )}
           </p>
           <p>
-            <input type="email" {...register("email")} />
-            {errors.email && <span>{errors.email?.message}</span>}
+            <input
+              type="email"
+              className={styles.registerInput}
+              {...register("email")}
+              placeholder="email..."
+            />
+            {errors.email && (
+              <span className={styles.registerError}>
+                {errors.email?.message}
+              </span>
+            )}
           </p>
           <p>
-            <input type="password" {...register("password")} />
-            {errors.password && <span>{errors.password?.message}</span>}
+            <input
+              type="password"
+              className={styles.registerInput}
+              {...register("password")}
+              placeholder="password..."
+            />
+            {errors.password && (
+              <span className={styles.registerError}>
+                {errors.password?.message}
+              </span>
+            )}
           </p>
         </div>
-        <button type="button" onClick={() => handleType("login")}>
-          To login
-        </button>
-        <Button>Register</Button>
+
+        <div className={styles.registerButtons}>
+          <button type="button" className={styles.registerLink} onClick={() => handleType("login")}>
+            To login
+          </button>
+          
+          <Button>Register</Button>
+        </div>
       </form>
     </div>
   );
