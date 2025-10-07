@@ -1,0 +1,29 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffcc;
+  scale: 0;
+  user-select: none;
+  pointer-events: none;
+  transition: $middleTransition;
+  z-index: $z-500;
+
+  &Active {
+    scale: 1;
+    pointer-events: all;
+  }
+
+  &Form {
+    position: relative;
+    padding: rem(30);
+    background-color: $mainWhite;
+    width: min(100% - rem(40), rem(600));
+    border-radius: rem(8);
+    box-shadow: 0 0 rem(5) $mainBlack;
+  }
+}

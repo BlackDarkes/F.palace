@@ -1,0 +1,44 @@
+.login {
+  margin-inline: auto;
+  width: min(100%, rem(400));
+
+  &Title {
+    text-align: center;
+
+    @include fluid-text(32, 26)
+  }
+
+  &Inputs {
+    margin: rem(30) auto rem(15);
+  }
+
+  &Input {
+    padding: rem(5) rem(3);
+    width: 100%;
+    border-bottom: rem(1) solid $mainBlack;
+
+    @include fluid-text(18, 14)
+  }
+
+  &Error {
+    color: $accentOrange;
+
+    font-size: rem(12);
+  }
+
+  &Buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(25);
+  }
+
+  &Link {
+    align-self: flex-end;
+    transition: $smallTransition;
+
+    @include hover() {
+      color: $mainBrown;
+    };
+    @include underline($mainBrown)
+  }
+}

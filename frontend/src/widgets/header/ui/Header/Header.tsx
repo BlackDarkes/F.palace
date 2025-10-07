@@ -12,7 +12,7 @@ const BurgerLazy = lazy(() => import("../Burger/Burger"));
 
 export const Header = () => {
   const [isScrolled, seIsScrolled] = useState<boolean>(false);
-  const { handleType, handleOpen, isOpenBurger } = useStore();
+  const { handleType, handleOpen, isOpenBurger, handleModelFormOpen } = useStore();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(
@@ -25,11 +25,13 @@ export const Header = () => {
 
   const openRegister = () => {
     handleType("register");
+    handleModelFormOpen();
     handleOpen();
   };
 
   const opeNLogin = () => {
     handleType("login");
+    handleModelFormOpen();
     handleOpen();
   };
 

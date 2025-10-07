@@ -5,6 +5,7 @@ import { useLogin } from "../../api/useLogin";
 import { ILogin } from "../../model/types/login.interface";
 import { useStore } from "@/app/store/store";
 import { Button } from "@/shared/ui";
+import styles from "./LoginForm.module.scss";
 
 const loginSchema = z.object({
   email: z
@@ -34,24 +35,44 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className={styles.login}>
+      <h2 className={styles.loginTitle}>Login</h2>
 
       <form action="" method="post" onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className={styles.loginInputs}>
           <p>
-            <input type="email" {...register("email")} />
-            {errors.email && <span>{errors.email?.message}</span>}
+            <input
+              type="email"
+              className={styles.loginInput}
+              {...register("email")}
+              placeholder="email..."
+            />
+            {errors.email && (
+              <span className={styles.loginError}>{errors.email?.message}</span>
+            )}
           </p>
           <p>
-            <input type="password" {...register("password")} />
-            {errors.password && <span>{errors.password?.message}</span>}
+            <input
+              type="password"
+              className={styles.loginInput}
+              {...register("password")}
+              placeholder="password..."
+            />
+            {errors.password && (
+              <span className={styles.loginError}>
+                {errors.password?.message}
+              </span>
+            )}
           </p>
         </div>
-        <button type="button" onClick={() => handleType("register")}>
-          To register
-        </button>
-        <Button>Login</Button>
+
+        <div className={styles.loginButtons}>
+          <button type="button"  className={styles.loginLink} onClick={() => handleType("register")}>
+            To register
+          </button>
+
+          <Button>Login</Button>
+        </div>
       </form>
     </div>
   );

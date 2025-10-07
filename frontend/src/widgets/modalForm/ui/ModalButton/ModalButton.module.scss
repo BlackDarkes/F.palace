@@ -1,0 +1,27 @@
+.close {
+  position: absolute;
+  top: rem(20);
+  right: rem(20);
+  width: rem(20);
+  height: rem(20);
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: rem(2);
+    background-color: $mainBlack;
+    transition: $middleTransition;
+  }
+
+  &::before {
+    top: 50%;
+    transform: rotate(45deg) translate(0, -50%);
+  }
+
+  &::after {
+    bottom: 50%;
+    transform: rotate(-45deg) translate(0, 50%);
+  }
+}
