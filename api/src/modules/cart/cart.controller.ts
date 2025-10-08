@@ -29,7 +29,7 @@ export class CartController {
 	@Get(":id")
 	@HttpCode(200)
 	async getById(@Param("id") id: string) {
-		const cart = await this.cartService.getById(id);
+		const cart = await this.cartService.getAllById(id);
 
 		if (!cart) {
 			throw new NotFoundException("Товар не найден в корзине!");

@@ -1,10 +1,17 @@
+"use client"
+
 import { publicApi } from "@/libs/api/instance/apiInstance";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { ICart } from "../models/cart.interface";
+import { useStore } from "@/app/store/store";
 
 export const useCart = () => {
-  return useMutation({
-    mutationFn: async (userId: string) => {
-      const response = await publicApi.get(`${userId}`);
+  const { user } = useStore();
+
+  return useQuery({
+    queryKey: ["carts"],
+    queryFn: async () => {
+      const response  = await publicApi.get<ICart[]>(`${user?.id}`);
       return response.data;
     }
   });
@@ -12,7 +19,7 @@ export const useCart = () => {
 
 export const useCreateCart = () => {
   return useMutation({
-    mutationFn: async (cart) => {
+    mutationFn: async (cart: ICart) => {
       const response = await publicApi.post(
         "cart",
         { cart },
@@ -29,6 +36,8 @@ export const useCreateCart = () => {
 };
 
 export const useDeleteFromId = () => {
+
+
   return useMutation({
     mutationFn: async (id: string) => {
       const response = await publicApi.post(`cart/${id}`);
@@ -38,9 +47,11 @@ export const useDeleteFromId = () => {
 }
 
 export const useDeleteAll = () => {
+  const { user } = useStore();
+
   return useMutation({
-    mutationFn: async (userId: string) => {
-      const response = await publicApi.post(`${userId}/all`);
+    mutationFn: async () => {
+      const response = await publicApi.post(`${user?.id}/all`);
       return response.data;
     }
   });
