@@ -3,10 +3,10 @@
 import { useStore } from "@/app/store/store";
 import { LoginForm } from "@/features/login";
 import { RegisterForm } from "@/features/register";
-import { ModalButton } from "../ModalButton/ModalButton";
-import styles from "./ModalForm.module.scss";
 import { MouseEvent } from "react";
 import { useBlockingScroll } from "@/shared/hooks/useBlockingScroll";
+import { CloseButton } from "@/shared/ui";
+import styles from "./ModalForm.module.scss";
 
 const ModalForm = () => {
   const { type, handleModelFormOpen, isModelFormOpen } = useStore();
@@ -20,7 +20,7 @@ const ModalForm = () => {
   return (
     <section className={`${styles.modal} ${isModelFormOpen ? styles.modalActive : ""}`} onClick={handleModelFormOpen}>
       <div onClick={handleInnerClick} className={styles.modalForm}>
-        <ModalButton handleOpen={handleModelFormOpen} />
+        <CloseButton handleClose={handleModelFormOpen} />
 
         {type === "login" ? (
           <LoginForm />

@@ -1,9 +1,9 @@
 "use client"
 
 import { useStore } from "@/app/store/store";
-import { ToastButton } from "../ToastButton/ToastButton";
 import { useCloseTimer } from "../../hooks/useCloseTimer";
 import styles from './ToastMessage.module.scss'
+import { CloseButton } from "@/shared/ui";
 
 const ToastMessage = () => {
   const { isOpenToast, handleOpenToast, toastMessage } = useStore();
@@ -13,7 +13,7 @@ const ToastMessage = () => {
   return (
     <section className={`${styles.toast} ${isOpenToast ? styles.toastActive : ""}`}>
       <div className={styles.toastContainer}>
-        <ToastButton onClose={handleOpenToast} />
+        <CloseButton handleClose={handleOpenToast} />
 
         <p className={styles.toastMessage}>{ toastMessage }</p>
       </div>
