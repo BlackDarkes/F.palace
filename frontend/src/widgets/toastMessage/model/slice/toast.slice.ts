@@ -6,6 +6,7 @@ export interface IToastSlice {
   setToastMessage: (message: string) => void;
   clearMessage: () => void;
   handleOpenToast: () => void;
+  handleCloseToast: () => void;
 }
 
 export const toastSlice: StateCreator<IToastSlice> = (set) => ({
@@ -14,4 +15,5 @@ export const toastSlice: StateCreator<IToastSlice> = (set) => ({
   setToastMessage: (message: string) => set(() => ({ toastMessage: message })),
   clearMessage: () => set(() => ({ toastMessage: null })),
   handleOpenToast: () => set((state) => ({ isOpenToast: !state.isOpenToast })),
+  handleCloseToast: () => set(() => ({ isOpenToast: false })),
 })
