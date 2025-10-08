@@ -6,7 +6,7 @@ import { ILogin } from "../model/types/login.interface";
 import { useStore } from "@/app/store/store";
 
 export const useLogin = () => {
-  const { setUser } = useStore();
+  const { setUser, handleAuthorize, setToastMessage, handleOpenToast } = useStore();
 
   return useMutation({
     mutationFn: async ({ email, password }: ILogin) => {
@@ -23,6 +23,9 @@ export const useLogin = () => {
     },
     onSuccess: (data) => {
       setUser(data?.user);
+      handleAuthorize();
+      setToastMessage(data?.message);
+      handleOpenToast();
     }
   });
 };

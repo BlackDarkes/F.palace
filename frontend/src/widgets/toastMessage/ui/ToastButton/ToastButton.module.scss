@@ -1,0 +1,27 @@
+.button {
+  position: absolute;
+  right: rem(10);
+  top: rem(10);
+  width: rem(20);
+  height: rem(20);
+  z-index: $z-400;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: rem(2);
+    background-color: $mainBrown;
+  }
+
+  &::before {
+    top: 50%;
+    transform: rotate(45deg) translate(0, -50%);
+  }
+
+  &::after {
+    bottom: 50%;
+    transform: rotate(-45deg) translate(0, 50%);
+  }
+}

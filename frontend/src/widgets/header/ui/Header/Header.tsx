@@ -3,17 +3,25 @@
 import { Container, Logo } from "@/shared/ui";
 import { NavList } from "../NavList/NavList";
 import styles from "./Header.module.scss";
-import { lazy, Suspense, useState } from "react";
+import { useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { throttle } from "lodash";
 import { useStore } from "@/app/store/store";
-
-const BurgerLazy = lazy(() => import("../Burger/Burger"));
+import { useLogout } from "@/features/logout/api/useLogout";
+import Burger from "../Burger/Burger";
 
 export const Header = () => {
   const [isScrolled, seIsScrolled] = useState<boolean>(false);
-  const { handleType, handleOpen, isOpenBurger, handleModelFormOpen } = useStore();
+  const {
+    handleType,
+    handleOpen,
+    isOpenBurger,
+    handleModelFormOpen,
+    isAuthorize,
+    logout,
+  } = useStore();
   const { scrollY } = useScroll();
+  const { mutate } = useLogout();
 
   useMotionValueEvent(
     scrollY,
@@ -35,6 +43,11 @@ export const Header = () => {
     handleOpen();
   };
 
+  const logoutAll = () => {
+    logout();
+    mutate();
+  };
+
   return (
     <motion.header
       animate={{ backgroundColor: isScrolled ? "#FFFFFF" : "rgba(0, 0, 0, 0)" }}
@@ -46,14 +59,14 @@ export const Header = () => {
         <div className={styles.headerList}>
           <NavList />
 
-          <Suspense>
-            <BurgerLazy
-              openLogin={opeNLogin}
-              openRegister={openRegister}
-              handleOpen={handleOpen}
-              isOpenBurger={isOpenBurger}
-            />
-          </Suspense>
+          <Burger
+            isOpenBurger={isOpenBurger}
+            isAuthorize={isAuthorize}
+            openLogin={opeNLogin}
+            openRegister={openRegister}
+            handleOpen={handleOpen}
+            logout={logoutAll}
+          />
         </div>
       </Container>
     </motion.header>

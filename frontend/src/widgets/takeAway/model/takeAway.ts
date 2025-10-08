@@ -1,4 +1,4 @@
-import { IInfo } from "@/entities/information";
+import { IInfo } from "@/shared/models/info.interface";
 
 export const TAKE_AWAIT: IInfo = {
   category: "Take away",

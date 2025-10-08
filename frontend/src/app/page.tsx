@@ -4,15 +4,19 @@ import { Feedback } from "@/widgets/feedback";
 import { Footer } from "@/widgets/footer/ui/Footer/Footer";
 import { Header } from "@/widgets/header";
 import { Hero } from "@/widgets/hero";
-import { ModalForm } from "@/widgets/modalForm";
 import { Recipes } from "@/widgets/recipes/";
 import { TakeAway } from "@/widgets/takeAway";
+import { lazy } from "react";
+
+const LazyModalForm = lazy(() => import("@/widgets/modalForm"));
+const LazyToastMessage = lazy(() => import("@/widgets/toastMessage"));
 
 export default function Home() {
   return (
     <>
       <Header />
-      <ModalForm />
+      <LazyModalForm />
+      <LazyToastMessage />
       <main>
         <Hero />
         <About />

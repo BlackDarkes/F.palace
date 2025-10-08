@@ -1,4 +1,5 @@
-import { IInfo } from "@/entities/information";
+import { IInfo } from "@/shared/models/info.interface";
+
 
 export const INFO: IInfo = {
   category: "About us",

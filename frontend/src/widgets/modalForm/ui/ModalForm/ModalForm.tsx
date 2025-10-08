@@ -8,7 +8,7 @@ import styles from "./ModalForm.module.scss";
 import { MouseEvent } from "react";
 import { useBlockingScroll } from "@/shared/hooks/useBlockingScroll";
 
-export const ModalForm = () => {
+const ModalForm = () => {
   const { type, handleModelFormOpen, isModelFormOpen } = useStore();
 
   useBlockingScroll(isModelFormOpen);
@@ -33,3 +33,5 @@ export const ModalForm = () => {
     </section>
   );
 };
+
+export default ModalForm;

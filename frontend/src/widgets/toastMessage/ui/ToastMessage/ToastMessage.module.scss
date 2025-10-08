@@ -1,0 +1,28 @@
+.toast {
+  position: fixed;
+  bottom: rem(30);
+  right: rem(50);
+  padding: rem(30);
+  width: min(100% - rem(40), rem(300));
+  background-color: $accentOrange;
+  color: $mainWhite;
+  border-radius: rem(8);
+  scale: 0;
+  transition: $middleTransition;
+  z-index: $z-400;
+
+  &Active {
+    scale: 1;
+  }
+
+  &Message {
+    &::first-letter {
+      font-size: rem(18);
+    }
+  }
+
+  @include mobile-s() {
+    right: 50%;
+    translate: 50% 0;
+  }
+}

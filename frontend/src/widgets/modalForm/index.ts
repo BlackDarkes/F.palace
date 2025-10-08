@@ -1,1 +1,3 @@
-export { ModalForm } from "./ui/ModalForm/ModalForm";
+import ModalForm from "./ui/ModalForm/ModalForm";
+
+export default ModalForm;

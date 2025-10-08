@@ -1,11 +1,22 @@
 import { feedbackSlice, IFeedbackSlice } from "@/features/feedback";
 import { ILoginSlice, loginSlice } from "@/features/login";
 import { burgerSlice, type IBurgerSlice } from "@/widgets/header";
-import { IModalSlice, modalSlice } from "@/widgets/modalForm/model/slice/modalForm.slice";
+import {
+  IModalSlice,
+  modalSlice,
+} from "@/widgets/modalForm/model/slice/modalForm.slice";
+import {
+  IToastSlice,
+  toastSlice,
+} from "@/widgets/toastMessage";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-type AppStateType = IBurgerSlice & IFeedbackSlice & ILoginSlice & IModalSlice;
+type AppStateType = IBurgerSlice &
+  IFeedbackSlice &
+  ILoginSlice &
+  IModalSlice &
+  IToastSlice;
 
 export const useStore = create<AppStateType>()(
   devtools(
@@ -14,7 +25,8 @@ export const useStore = create<AppStateType>()(
       ...feedbackSlice(set, get, api),
       ...loginSlice(set, get, api),
       ...modalSlice(set, get, api),
+      ...toastSlice(set, get, api),
     }),
     { name: "AppStore" }
   )
-)
+);
