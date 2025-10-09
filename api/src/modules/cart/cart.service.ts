@@ -14,21 +14,30 @@ export class CartService {
 	async getAll(): Promise<CartEntity[] | null> {
 		return this.cartRepository
 			.createQueryBuilder("cart")
-			.leftJoinAndSelect("cart.product", "product") 
-			.leftJoin("cart.user", "user") 
-			.addSelect(["user.id", "user.name"]) 
+			.leftJoinAndSelect("cart.product", "product")
+			.leftJoin("cart.user", "user")
+			.addSelect(["user.id", "user.name"])
 			.getMany();
 	}
 
-async getAllById(id: string): Promise<CartEntity[] | null> {
-    return this.cartRepository
-        .createQueryBuilder("cart")
-        .leftJoinAndSelect("cart.product", "product") 
-        .leftJoin("cart.user", "user")
-        .addSelect(["user.name"])
-        .where("user.id = :userId", { userId: id })
-        .getMany();
-}
+	async getAllById(id: string): Promise<any[] | null> {
+		return this.cartRepository
+			.createQueryBuilder("cart")
+			.leftJoin("cart.product", "product")
+			.leftJoin("cart.user", "user")
+			.select([
+				"cart.id as id",
+				"cart.quantity as quantity",
+				"user.name as user_name",
+				"product.name as product_name",
+				"product.image as image",
+				"product.price as price",
+				"product.stars as stars",
+			])
+			.where("user.id = :userId", { userId: id })
+			.getRawMany();
+	}
+
 	async getById(id: string): Promise<CartEntity | null | undefined> {
 		return this.cartRepository
 			.createQueryBuilder("cart")

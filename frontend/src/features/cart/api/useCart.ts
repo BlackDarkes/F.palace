@@ -4,14 +4,15 @@ import { publicApi } from "@/libs/api/instance/apiInstance";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { ICart } from "../models/cart.interface";
 import { useStore } from "@/app/store/store";
+import { ICartItem } from "../models/cartItem.interface";
 
 export const useCart = () => {
   const { user } = useStore();
 
   return useQuery({
-    queryKey: ["carts"],
+    queryKey: ["carts", user?.id],
     queryFn: async () => {
-      const response  = await publicApi.get<ICart[]>(`${user?.id}`);
+      const response  = await publicApi.get<ICartItem[]>(`cart/${user?.id}`);
       return response.data;
     }
   });

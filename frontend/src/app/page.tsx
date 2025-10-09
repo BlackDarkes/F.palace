@@ -1,4 +1,5 @@
 import { About } from "@/widgets/about";
+import { CartModal } from "@/widgets/cartModal";
 import { Features } from "@/widgets/features/ui/Features/Features";
 import { Feedback } from "@/widgets/feedback";
 import { Footer } from "@/widgets/footer/ui/Footer/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <LazyModalForm />
       <LazyToastMessage />
+      <CartModal />
       <main>
         <Hero />
         <About />
