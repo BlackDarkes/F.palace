@@ -1,0 +1,24 @@
+.cart {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffcc;
+  scale: 0;
+  transition: $middleTransition;
+  z-index: $z-400;
+
+  &Container {
+    position: relative;
+    display: flex;
+    column-gap: rem(40);
+    padding: rem(20);
+    background-color: $mainWhite;
+    box-shadow: 0 0 rem(5) $mainBlack;
+  }
+
+  &Active {
+    scale: 1;
+  }
+}

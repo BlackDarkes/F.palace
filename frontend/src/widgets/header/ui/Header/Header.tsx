@@ -19,6 +19,7 @@ export const Header = () => {
     handleModelFormOpen,
     isAuthorize,
     logout,
+    handleCartOpen
   } = useStore();
   const { scrollY } = useScroll();
   const { mutate } = useLogout();
@@ -57,7 +58,7 @@ export const Header = () => {
         <Logo />
 
         <div className={styles.headerList}>
-          <NavList />
+          <NavList cartOpen={handleCartOpen} />
 
           <Burger
             isOpenBurger={isOpenBurger}
