@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: rem(20);
+  row-gap: rem(20);
+  width: min(100%, rem(500));
+  max-height: rem(340);
+  overflow-y: auto;
+
+  &Error {
+    margin: rem(20);
+    @include fluid-text(24, 20)
+  }
+
+  @include tablet() {
+    max-height: rem(240);
+  }
+}

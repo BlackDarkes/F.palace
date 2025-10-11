@@ -1,5 +1,6 @@
 import { ICartItem } from "@/features/cart";
 import { Button } from "@/shared/ui";
+import styles from './CartBuy.module.scss'
 
 interface ICartBuyProps {
   carts: ICartItem[] | undefined;
@@ -7,21 +8,21 @@ interface ICartBuyProps {
   
 export const CartBuy = ({ carts }: ICartBuyProps) => {
   return (
-    <article>
-      <div>
-        <h3>Payment</h3>
+    <article className={styles.buy}>
+      <div className={styles.buyContainer}>
+        <h3 className={styles.buyPayment}>Payment</h3>
 
-        <ul>
+        <ul className={styles.buyListPrice}>
           { carts?.map((cart) => (
-            <li key={cart.id}>
-              <p>{cart.product_name}</p>
+            <li key={cart.id} className={styles.buyListItem}>
+              <h4 className={styles.buyProductName}>{cart.product_name}</h4>
 
-              <p>{cart.price}</p>
+              <p>{cart.price}$</p>
             </li>
           )) }
         </ul>
 
-        <p>total: {carts?.reduce((acum, cart) => acum + parseFloat(cart.price), 0)}</p>
+        <p>Total: {carts?.reduce((acum, cart) => acum + parseFloat(cart.price), 0).toFixed(2)}$</p>
 
         <Button>Buy</Button>
       </div>

@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CartEntity } from "./entities/cart.entity";
 import { Repository } from "typeorm";
@@ -38,19 +38,18 @@ export class CartService {
 			.getRawMany();
 	}
 
-	async getById(id: string): Promise<CartEntity | null | undefined> {
-		return this.cartRepository
-			.createQueryBuilder("cart")
-			.leftJoin("cart.user", "user")
-			.select([
-				"cart.id as id",
-				"user.name as name",
-				"product.name as product",
-				"cart.quantity as quantity",
-			])
-			.where("user.id = :userId", { userId: id })
-			.getRawOne();
-	}
+  async getById(id: string): Promise<CartEntity> {
+    const cartItem = await this.cartRepository.findOne({
+      where: { id },
+      relations: ["product", "user"]
+    });
+
+    if (!cartItem) {
+      throw new NotFoundException('Элемент корзины не найден');
+    }
+
+    return cartItem;
+  }
 
 	async create(dto: CartDto) {
 		const { userId, productId, quantity } = dto;

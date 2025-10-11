@@ -8,14 +8,23 @@
   scale: 0;
   transition: $middleTransition;
   z-index: $z-400;
+  cursor: pointer;
 
   &Container {
     position: relative;
     display: flex;
-    column-gap: rem(40);
-    padding: rem(20);
+    align-items: center;
+    column-gap: rem(60);
+    padding: rem(40);
+    width: fit-content;
     background-color: $mainWhite;
     box-shadow: 0 0 rem(5) $mainBlack;
+    cursor: default;
+
+    @include mobile() {
+      flex-direction: column;
+      row-gap: rem(40);
+    }
   }
 
   &Active {

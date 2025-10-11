@@ -1,0 +1,38 @@
+.buy {
+  &Container {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(10);
+  }
+
+  &Payment {
+    @include fluid-text(24, 18)
+  }
+
+  &ListPrice {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(10);
+    max-height: rem(95);
+    overflow-y: auto;
+
+    @include tablet() {
+      max-height: rem(70);
+    }
+  }
+
+  &ListItem {
+    display: flex;
+    justify-content: space-between;
+    margin-right: rem(10);
+    column-gap: rem(20);
+  }
+
+  &ProductName {
+    font-size: rem(14);
+  }
+
+  &Total {
+    font-weight: 800;
+  }
+}

@@ -20,7 +20,11 @@ export const CartModal = () => {
       <div className={styles.cartContainer} onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
         <CartList carts={carts} user={user} />
 
-        <CartBuy carts={carts} />
+        { user?.id ? (
+          <CartBuy carts={carts} />
+        ) : (
+          ""
+        ) }
 
         <CloseButton handleClose={handleCartOpen} />
       </div>

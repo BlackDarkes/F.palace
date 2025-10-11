@@ -1,0 +1,26 @@
+.item {
+  position: relative;
+  flex-shrink: 0;
+  width: min(100%, rem(500));
+
+  &Info {
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+  }
+
+  &Product {
+    margin-right: rem(15);
+
+    @include fluid-text(20, 16)
+  }
+
+  &Price {
+    @include fluid-text(16, 14)
+  }
+
+  &Close {
+    top: 0;
+    right: 0;
+  }
+}

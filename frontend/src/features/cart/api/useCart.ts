@@ -49,21 +49,37 @@ export const useCreateCart = () => {
 };
 
 export const useDeleteFromId = () => {
+  const { setToastMessage, handleOpenToast } = useStore();
+
   return useMutation({
     mutationFn: async (id: string) => {
-      const response = await publicApi.post(`cart/${id}`);
+      const response = await publicApi.delete(`cart/${id}`);
       return response.data;
     },
+    onSuccess: (data) => {
+      setToastMessage(data.message);
+      handleOpenToast();
+      queryClient.invalidateQueries({
+        queryKey: ["carts"]
+      })
+    }
   });
 };
 
 export const useDeleteAll = () => {
-  const { user } = useStore();
+  const { user, setToastMessage, handleOpenToast } = useStore();
 
   return useMutation({
     mutationFn: async () => {
       const response = await publicApi.post(`${user?.id}/all`);
       return response.data;
     },
+    onSuccess: (data) => {
+      setToastMessage(data.message);
+      handleOpenToast();
+      queryClient.invalidateQueries({
+        queryKey: ["carts"]
+      })
+    }
   });
 };
