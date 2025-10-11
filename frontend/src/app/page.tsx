@@ -11,6 +11,7 @@ import { lazy } from "react";
 
 const LazyModalForm = lazy(() => import("@/widgets/modalForm"));
 const LazyToastMessage = lazy(() => import("@/widgets/toastMessage"));
+const LazySearchModal = lazy(() => import("@/widgets/searchModal"))
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <LazyModalForm />
       <LazyToastMessage />
       <CartModal />
+      <LazySearchModal />
       <main>
         <Hero />
         <About />

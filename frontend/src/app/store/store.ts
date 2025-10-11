@@ -1,11 +1,12 @@
 import { cartSlice, ICartSlice } from "@/features/cart/models/cart.slice";
 import { feedbackSlice, IFeedbackSlice } from "@/features/feedback";
 import { ILoginSlice, loginSlice } from "@/features/login";
+import { ISearchSlice, searchSlice } from "@/features/search";
 import { burgerSlice, type IBurgerSlice } from "@/widgets/header";
 import {
   IModalSlice,
   modalSlice,
-} from "@/widgets/modalForm/model/slice/modalForm.slice";
+} from "@/widgets/modalForm";
 import {
   IToastSlice,
   toastSlice,
@@ -18,7 +19,8 @@ type AppStateType = IBurgerSlice &
   ILoginSlice &
   IModalSlice &
   IToastSlice &
-  ICartSlice;
+  ICartSlice &
+  ISearchSlice;
 
 export const useStore = create<AppStateType>()(
   devtools(
@@ -29,6 +31,7 @@ export const useStore = create<AppStateType>()(
       ...modalSlice(set, get, api),
       ...toastSlice(set, get, api),
       ...cartSlice(set, get, api),
+      ...searchSlice(set, get, api),
     }),
     { name: "AppStore" }
   )

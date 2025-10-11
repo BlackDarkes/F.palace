@@ -3,10 +3,12 @@ import {
 	Controller,
 	Delete,
 	Get,
+	HttpCode,
 	NotFoundException,
 	Param,
 	Post,
 	Put,
+	Query,
 } from "@nestjs/common";
 import { ProductService } from "./product.service";
 import { ProductDto } from "./common/dto/product.dto";
@@ -14,6 +16,18 @@ import { ProductDto } from "./common/dto/product.dto";
 @Controller("product")
 export class ProductController {
 	constructor(private readonly productService: ProductService) {}
+
+	@Get("search")
+	@HttpCode(200)
+	async getByProductName(@Query("q") search: string) {
+		const products = await this.productService.getByProductName(search);
+
+		if (!products || products.length === 0) {
+			throw new NotFoundException("Ничего не найдено!");
+		}
+
+		return products;
+	}
 
 	@Get("")
 	async getAll() {

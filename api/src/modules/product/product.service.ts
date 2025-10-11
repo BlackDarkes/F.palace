@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Repository } from "typeorm";
+import { ILike, Repository } from "typeorm";
 import { ProductsEntity } from "./entities/product.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ProductDto } from "./common/dto/product.dto";
@@ -17,6 +17,14 @@ export class ProductService {
 
 	async getById(id: string): Promise<ProductsEntity | null> {
 		return this.productRepository.findOne({ where: { id } });
+	}
+
+	async getByProductName(search: string): Promise<ProductsEntity[] | null> {
+		return this.productRepository.find({ 
+			where: {
+				name: ILike(`%${search}%`)
+			}
+		});
 	}
 
 	async create(product: ProductDto) {
