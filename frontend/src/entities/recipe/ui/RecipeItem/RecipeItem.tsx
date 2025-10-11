@@ -5,9 +5,10 @@ import styles from './RecipeItem.module.scss'
 
 interface IRecipeItemProps {
   recipe: IRecipe;
+  addCart: (recipeId: string) => void;
 }
   
-export const RecipeItem = ({ recipe }: IRecipeItemProps) => {
+export const RecipeItem = ({ recipe, addCart }: IRecipeItemProps) => {
   return (
     <li className={styles.item}>
       <Image src={`/api${recipe.image}`} alt={`recipe ${recipe.name}`} width={330} height={231} loading="lazy" />
@@ -19,7 +20,7 @@ export const RecipeItem = ({ recipe }: IRecipeItemProps) => {
         </div>
 
         <div className={styles.itemTextContainer}>
-          <button className={styles.itemButton}>ADD TO CART</button>
+          <button className={styles.itemButton} onClick={() => addCart(recipe.id)}>ADD TO CART</button>
           <p className={styles.itemPrice}>$ {recipe.price}</p>
         </div>
       </div>
