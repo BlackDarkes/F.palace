@@ -1,6 +1,22 @@
 .search {
   position: fixed;
   inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffffcc;
+  scale: 0;
+  transition: $middleTransition;
   z-index: $z-500;
+
+  &Container {
+    position: relative;
+    padding: rem(40);
+    background-color: $mainWhite;
+    box-shadow: 0 0 rem(5) $mainBlack;
+  }
+
+  &Active {
+    scale: 1;
+  }
 }

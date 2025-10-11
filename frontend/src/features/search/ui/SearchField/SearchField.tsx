@@ -3,6 +3,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useSearch } from "../../api/useSearch";
 import { useStore } from "@/app/store/store";
+import styles from './SearchField.module.scss'
 
 export const SearchField = () => {
   const [searchInput, setSearchInput] = useState<string>("");
@@ -25,6 +26,8 @@ export const SearchField = () => {
   }
 
   return (
-    <input type="text" value={searchInput} onChange={handleChange} />
+    <search>
+      <input type="search" className={styles.input} value={searchInput} onChange={handleChange} placeholder="Search..." />
+    </search>
   );
 }

@@ -1,0 +1,6 @@
+.input {
+  border-bottom: rem(1) solid $mainBlack;
+  padding: rem(12) rem(8) rem(4);
+  
+  @include fluid-text(20, 16)
+}

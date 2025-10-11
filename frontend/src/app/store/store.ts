@@ -7,6 +7,7 @@ import {
   IModalSlice,
   modalSlice,
 } from "@/widgets/modalForm";
+import { ISearchModalSlice, searchModalSlice } from "@/widgets/searchModal";
 import {
   IToastSlice,
   toastSlice,
@@ -20,7 +21,8 @@ type AppStateType = IBurgerSlice &
   IModalSlice &
   IToastSlice &
   ICartSlice &
-  ISearchSlice;
+  ISearchSlice &
+  ISearchModalSlice;
 
 export const useStore = create<AppStateType>()(
   devtools(
@@ -32,6 +34,7 @@ export const useStore = create<AppStateType>()(
       ...toastSlice(set, get, api),
       ...cartSlice(set, get, api),
       ...searchSlice(set, get, api),
+      ...searchModalSlice(set, get, api),
     }),
     { name: "AppStore" }
   )

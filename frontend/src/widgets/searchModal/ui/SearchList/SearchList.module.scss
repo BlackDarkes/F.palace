@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(30);
+  margin-top: rem(30);
+  padding-right: rem(20);
+  max-height: rem(350);
+  overflow-y: auto;
+
+  &Message {
+    margin-top: rem(20);
+    text-align: center;
+
+    @include fluid-text(20, 16)
+  }
+}

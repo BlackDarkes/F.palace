@@ -1,8 +1,8 @@
 import { About } from "@/widgets/about";
 import { CartModal } from "@/widgets/cartModal";
-import { Features } from "@/widgets/features/ui/Features/Features";
+import { Features } from "@/widgets/features";
 import { Feedback } from "@/widgets/feedback";
-import { Footer } from "@/widgets/footer/ui/Footer/Footer";
+import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { Hero } from "@/widgets/hero";
 import { Recipes } from "@/widgets/recipes/";

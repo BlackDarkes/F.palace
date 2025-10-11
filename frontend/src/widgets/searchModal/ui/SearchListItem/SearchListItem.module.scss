@@ -1,0 +1,15 @@
+.item {
+  &:not(&:last-child) {
+    margin-bottom: rem(30);
+  }
+
+  &Name {
+    margin-top: rem(15);
+
+    @include fluid-text(24, 18)
+  }
+
+  &Price {
+    @include fluid-text(18, 14)
+  }
+}

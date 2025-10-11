@@ -5,18 +5,21 @@ import { SearchList } from "../SearchList/SearchList";
 import { useStore } from "@/app/store/store";
 import { SearchField } from "@/features/search";
 import styles from './SearchModal.module.scss'
+import { useBlockingScroll } from "@/shared/hooks/useBlockingScroll";
 
 const SearchModal = () => {
-  const { searchResult } = useStore();
+  const { searchResult, isOpenSearchModal, handleSearchModal } = useStore();
+
+  useBlockingScroll(isOpenSearchModal);
 
   return (
-    <section className={styles.search}>
-      <div>
+    <section className={`${styles.search} ${isOpenSearchModal ? styles.searchActive : ""}`}>
+      <div className={styles.searchContainer}>
         <SearchField />
 
         <SearchList searches={searchResult} />
 
-        <CloseButton handleClose={() => {}} />
+        <CloseButton handleClose={handleSearchModal} />
       </div>
     </section>
   );

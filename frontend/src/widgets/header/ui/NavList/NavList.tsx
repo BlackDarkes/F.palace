@@ -5,13 +5,14 @@ import { BurgerButton } from "../BurgerButton/BurgerButton";
 
 interface INavListProps {
   cartOpen: () => void;
+  searchOpen: () => void;
 }
   
-export const NavList = ({ cartOpen }: INavListProps) => {
+export const NavList = ({ cartOpen, searchOpen }: INavListProps) => {
   return (
     <ul className={styles.navList}>
       <li className={styles.navListLi}>
-        <button className={styles.navListButton}><SearchIcon /></button>
+        <button className={styles.navListButton} onClick={searchOpen}><SearchIcon /></button>
       </li>
       <li className={styles.navListLiCart}>
         <button className={styles.navListButton} onClick={cartOpen}><CartIcon /></button>
