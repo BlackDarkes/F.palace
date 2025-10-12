@@ -14,11 +14,12 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       "http://localhost:3000",
-      `http://${configService.get<string>("HOST")}:${configService.get<string>("PORT")}`,
+      `http://${configService.get<string>("HOST")}:${configService.get<string>("PORT_CLIENT")}`,
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    headers: ["Content-Type", "Authorization", "Set-Cookie"],
-    credential: true,
+    allowedHeaders: ["Content-Type", "Authorization", "Set-Cookie"],
+    exposedHeaders: ["Set-Cookie"],
+    credentials: true,
   });
 
   await app.listen(configService.get<number>("PORT") ?? 8000);
