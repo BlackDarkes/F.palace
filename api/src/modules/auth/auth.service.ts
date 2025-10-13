@@ -66,7 +66,7 @@ export class AuthService {
 		const { email, password } = dto;
 		const user = await this.userService.getByEmail(email);
 
-		if (!user || !compare(password, user.password)) {
+		if (!user || !(await compare(password, user.password))) {
 			throw new UnauthorizedException("Неверный логин или пароль!");
 		}
 
